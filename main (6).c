@@ -2,18 +2,22 @@
 
 int main()
 {
+    // arm and claw in position to grab hotdog
     enable_servos();
     set_servo_position(3,250);
     msleep(250);
     set_servo_position(0,100);
     msleep(250);
+    //move to hotdog
     motor(0,100);
     motor(1,100);
     motor(2,-100);
     motor(3,-100);
     msleep(3685);
+    //grab hotdog
     set_servo_position(0,1500);
     msleep(250);
+    //back up to pvc
     while(digital(1)==0)
     {
         motor(0,-100);
